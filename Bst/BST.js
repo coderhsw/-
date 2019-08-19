@@ -104,6 +104,28 @@ class BST {
 		console.log(root.value);
 	}
 
+	levelOrder() {
+		const q = [];
+
+		q.unshift(this.root);
+
+		while(q.length > 0) {
+			const cur = q.pop();
+			if (cur) {
+				console.log(cur.value);
+			} else {
+				return;
+			}
+
+			if (cur.left) {
+				q.unshift(cur.left);
+			}
+			if (cur.right) {
+				q.unshift(cur.right);
+			}
+		}
+	}
+
 	minNode() {
 		this._minNode(this.root);
 	}
@@ -183,3 +205,5 @@ console.log('\n');
 bst.inOrder();
 console.log('\n');
 bst.postOrder();
+console.log('\n');
+bst.levelOrder();
